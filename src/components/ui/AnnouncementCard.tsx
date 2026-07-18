@@ -20,7 +20,7 @@ export default function AnnouncementCard({
     onDelete,
 }: AnnouncementCardProps) {
     return (
-        <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-sm transition-shadow">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700 hover:shadow-sm transition-shadow">
             <div className="flex items-start justify-between">
                 <div>
                     <h4 className="text-lg font-semibold text-gray-900">

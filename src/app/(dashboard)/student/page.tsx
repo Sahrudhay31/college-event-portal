@@ -32,26 +32,26 @@ export default function StudentDashboard() {
 
     return (
         <div className="p-8">
-            <h1 className="text-3xl font-bold">🎓 Student Dashboard</h1>
-            <p className="text-gray-600 mt-2">Welcome, {user?.name || 'Student'}!</p>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">🎓 Student Dashboard</h1>
+            <p className="text-gray-600 dark:text-gray-400 mt-2">Welcome, {user?.name || 'Student'}!</p>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Link
                     href="/student/events"
-                    className="p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-blue-400 transition"
+                    className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-400 transition"
                 >
                     <h2 className="text-xl font-semibold">📅 View Events</h2>
                     <p className="text-gray-500">Browse and register for upcoming events</p>
                 </Link>
                 <Link
                     href="/student/registrations"
-                    className="p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-blue-400 transition"
+                    className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-400 transition"
                 >
                     <h2 className="text-xl font-semibold">📋 My Registrations</h2>
                     <p className="text-gray-500">View and manage your registered events</p>
                 </Link>
                 <Link
                     href="/student/announcements"
-                    className="p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-blue-400 transition"
+                    className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-400 transition"
                 >
                     <h2 className="text-xl font-semibold">📢 Announcements</h2>
                     <p className="text-gray-500">Read the latest updates</p>

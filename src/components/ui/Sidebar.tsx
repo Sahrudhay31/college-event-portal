@@ -31,7 +31,7 @@ export default function Sidebar({ isOpen, isAdmin }: SidebarProps) {
     return (
         <aside
             className={cn(
-                'fixed left-0 top-16 bottom-0 z-40 w-64 bg-white border-r border-gray-200 transition-transform duration-300 overflow-y-auto',
+                'fixed left-0 top-16 bottom-0 z-40 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-transform duration-300 overflow-y-auto',
                 !isOpen && '-translate-x-full'
             )}
         >

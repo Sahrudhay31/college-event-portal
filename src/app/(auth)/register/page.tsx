@@ -56,10 +56,10 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
-                <p className="text-gray-600 mt-2">Join the college event community</p>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Create Account</h1>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">Join the college event community</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -110,7 +110,7 @@ export default function RegisterPage() {
                 </Button>
             </form>
 
-            <p className="text-center text-sm text-gray-600 mt-6">
+            <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">
                 Already have an account?{' '}
                 <Link href="/login" className="text-blue-600 hover:text-blue-700 font-medium">
                     Sign in

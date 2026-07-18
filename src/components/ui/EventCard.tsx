@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 import { format } from 'date-fns';
 import Button from './Button';
 import { cn } from '@/lib/utils';
@@ -25,6 +26,7 @@ interface EventCardProps {
     isAdmin?: boolean;
     onEdit?: (eventId: string) => void;
     onDelete?: (eventId: string) => void;
+    qrCode?: string;
 }
 
 export default function EventCard({
@@ -35,6 +37,7 @@ export default function EventCard({
     isAdmin = false,
     onEdit,
     onDelete,
+    qrCode,
 }: EventCardProps) {
     const [loading, setLoading] = useState(false);
     const isDeadlinePassed = new Date() > new Date(event.registrationDeadline);
@@ -60,7 +63,7 @@ export default function EventCard({
     };
 
     return (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:-translate-y-1.5 hover:shadow-xl hover:border-blue-400/50 dark:hover:border-blue-500/50 transition-all duration-300 group">
             <div className="relative h-48 bg-gray-200">
                 {event.banner && (
                     <img
@@ -70,14 +73,14 @@ export default function EventCard({
                     />
                 )}
                 <div className="absolute top-3 right-3">
-                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/90 backdrop-blur-sm text-gray-800">
+                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-gray-800 dark:text-gray-200">
                         {event.category}
                     </span>
                 </div>
             </div>
 
             <div className="p-5">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-1">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 line-clamp-1">
                     {event.title}
                 </h3>
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2">
@@ -161,6 +164,14 @@ export default function EventCard({
                         </span>
                     )}
                 </div>
+
+                {qrCode && (
+                    <div className="mt-6 pt-4 border-t border-gray-100 flex flex-col items-center">
+                        <p className="text-xs text-gray-500 mb-2 font-medium">Your Registration QR Ticket</p>
+                        <QRCodeSVG value={qrCode} size={96} />
+                        <p className="text-xs font-mono text-gray-400 mt-2">{qrCode}</p>
+                    </div>
+                )}
             </div>
         </div>
     );

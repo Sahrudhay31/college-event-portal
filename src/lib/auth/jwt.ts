@@ -43,5 +43,9 @@ export function getTokenFromRequest(req: NextRequest): string | null {
     if (authHeader && authHeader.startsWith('Bearer ')) {
         return authHeader.substring(7);
     }
+    const cookieToken = req.cookies.get('token')?.value;
+    if (cookieToken) {
+        return cookieToken;
+    }
     return null;
 }

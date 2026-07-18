@@ -41,7 +41,7 @@ export default function DashboardLayout({
     const isAdmin = pathname.startsWith('/admin');
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <Navbar
                 toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
                 isSidebarOpen={isSidebarOpen}
@@ -49,7 +49,7 @@ export default function DashboardLayout({
             <div className="flex">
                 <Sidebar isOpen={isSidebarOpen} isAdmin={isAdmin} />
                 <main
-                    className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'
+                    className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'md:ml-64' : 'ml-0'
                         }`}
                 >
                     <div className="p-6">{children}</div>
