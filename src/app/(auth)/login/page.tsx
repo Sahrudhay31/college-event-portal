@@ -1,0 +1,96 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
+
+export default function LoginPage() {
+    const router = useRouter();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setError('');
+        setLoading(true);
+
+        try {
+            const res = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Login failed');
+            }
+
+            // Store token and user data
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+
+            // Redirect based on role
+            if (data.user.role === 'admin') {
+                router.push('/admin');
+            } else {
+                router.push('/student');
+            }
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold text-gray-900">Welcome Back!</h1>
+                <p className="text-gray-600 mt-2">Sign in to your account</p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+                <Input
+                    label="Email Address"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    required
+                />
+
+                <Input
+                    label="Password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    required
+                />
+
+                {error && (
+                    <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
+                        {error}
+                    </div>
+                )}
+
+                <Button type="submit" fullWidth loading={loading}>
+                    Sign In
+                </Button>
+            </form>
+
+            <p className="text-center text-sm text-gray-600 mt-6">
+                Don't have an account?{' '}
+                <Link href="/register" className="text-blue-600 hover:text-blue-700 font-medium">
+                    Sign up
+                </Link>
+            </p>
+        </div>
+    );
+}
