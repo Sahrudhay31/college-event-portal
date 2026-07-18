@@ -40,7 +40,7 @@ export default function AdminEvents() {
     return (
         <div className="p-8">
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-bold">Manage Events</h1>
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Manage Events</h1>
                 <Button onClick={() => router.push('/admin/events/create')}>+ Create New</Button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

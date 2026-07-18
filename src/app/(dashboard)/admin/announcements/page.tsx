@@ -53,24 +53,24 @@ export default function AdminAnnouncements() {
     return (
         <div className="p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
-                <h1 className="text-2xl font-bold mb-6">Post Announcement</h1>
-                <form onSubmit={handleCreate} className="space-y-4 bg-white p-6 rounded-xl border border-gray-200">
+                <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Post Announcement</h1>
+                <form onSubmit={handleCreate} className="space-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
                     <Input label="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
                     <div className="space-y-2">
-                        <label className="block text-sm font-medium text-gray-700">Content</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Content</label>
                         <textarea 
                             value={content} 
                             onChange={(e) => setContent(e.target.value)} 
                             required rows={4}
-                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
                     <div className="space-y-2">
-                        <label className="block text-sm font-medium text-gray-700">Priority</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Priority</label>
                         <select 
                             value={priority} 
                             onChange={(e) => setPriority(e.target.value)}
-                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="low">Low</option>
                             <option value="medium">Medium</option>
@@ -82,7 +82,7 @@ export default function AdminAnnouncements() {
             </div>
 
             <div>
-                <h2 className="text-2xl font-bold mb-6">Recent Announcements</h2>
+                <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Recent Announcements</h2>
                 <div className="space-y-4">
                     {loading ? <p>Loading...</p> : announcements.map((ann: any) => (
                         <div key={ann._id} className="relative">

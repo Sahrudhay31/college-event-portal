@@ -64,15 +64,17 @@ export default function StudentRegistrations() {
                     </>
                 ) : (
                     <>
-                        {registrations.map((reg: any) => (
-                            <EventCard 
-                                key={reg._id} 
-                                event={reg.eventId} 
-                                isRegistered={true}
-                                onCancel={handleCancel}
-                                qrCode={reg.qrCode}
-                            />
-                        ))}
+                        {registrations.map((reg: any) => 
+                            reg.eventId ? (
+                                <EventCard 
+                                    key={reg._id} 
+                                    event={reg.eventId} 
+                                    isRegistered={true}
+                                    onCancel={handleCancel}
+                                    qrCode={reg.qrCode}
+                                />
+                            ) : null
+                        )}
                         {registrations.length === 0 && <p className="col-span-3 text-gray-500">You haven't registered for any events.</p>}
                     </>
                 )}

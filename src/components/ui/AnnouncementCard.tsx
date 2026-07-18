@@ -23,15 +23,15 @@ export default function AnnouncementCard({
         <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700 hover:shadow-sm transition-shadow">
             <div className="flex items-start justify-between">
                 <div>
-                    <h4 className="text-lg font-semibold text-gray-900">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
                         {announcement.title}
                     </h4>
-                    <p className="text-gray-600 mt-2">{announcement.content}</p>
-                    <div className="flex items-center gap-3 mt-3 text-sm text-gray-500">
+                    <p className="text-gray-600 dark:text-gray-400 mt-2">{announcement.content}</p>
+                    <div className="flex items-center gap-3 mt-3 text-sm text-gray-500 dark:text-gray-400">
                         <span>👤 {announcement.createdBy?.name || 'Admin'}</span>
                         <span>•</span>
                         <span>
-                            {formatDistanceToNow(new Date(announcement.createdAt), {
+                            {formatDistanceToNow(new Date(announcement.createdAt || (announcement as any).date || Date.now()), {
                                 addSuffix: true,
                             })}
                         </span>

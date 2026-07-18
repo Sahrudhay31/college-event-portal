@@ -40,7 +40,7 @@ export default function Navbar({ toggleSidebar, isSidebarOpen }: NavbarProps) {
                         aria-label="Toggle sidebar"
                     >
                         <svg
-                            className="w-6 h-6 text-gray-700"
+                            className="w-6 h-6 text-gray-700 dark:text-gray-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -61,7 +61,7 @@ export default function Navbar({ toggleSidebar, isSidebarOpen }: NavbarProps) {
                 <div className="flex items-center gap-4">
                     <ThemeToggle />
                     <div className="hidden md:flex items-center gap-2">
-                        <span className="text-sm text-gray-700">
+                        <span className="text-sm text-gray-700 dark:text-gray-300">
                             {user?.name || 'User'}
                         </span>
                         <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">

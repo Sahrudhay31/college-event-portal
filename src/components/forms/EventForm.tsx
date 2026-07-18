@@ -38,18 +38,18 @@ export default function EventForm({ initialData = null, onSubmit }: { initialDat
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+        <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
             <Input label="Event Title" name="title" value={formData.title} onChange={handleChange} required />
             
             <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">Description</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
                 <textarea 
                     name="description" 
                     value={formData.description} 
                     onChange={handleChange} 
                     required
                     rows={4}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 />
             </div>
 
@@ -63,12 +63,12 @@ export default function EventForm({ initialData = null, onSubmit }: { initialDat
             <div className="grid grid-cols-2 gap-4">
                 <Input label="Venue" name="venue" value={formData.venue} onChange={handleChange} required />
                 <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700">Category</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Category</label>
                     <select 
                         name="category" 
                         value={formData.category} 
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                     >
                         <option>Technical</option>
                         <option>Cultural</option>

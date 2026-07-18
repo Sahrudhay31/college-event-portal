@@ -45,8 +45,8 @@ export default function Sidebar({ isOpen, isAdmin }: SidebarProps) {
                             className={cn(
                                 'flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200',
                                 isActive
-                                    ? 'bg-blue-50 text-blue-700 font-medium'
-                                    : 'text-gray-700 hover:bg-gray-100'
+                                    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium'
+                                    : 'text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50'
                             )}
                         >
                             <span className="text-xl">{link.icon}</span>

@@ -40,8 +40,8 @@ export default function EventCard({
     qrCode,
 }: EventCardProps) {
     const [loading, setLoading] = useState(false);
-    const isDeadlinePassed = new Date() > new Date(event.registrationDeadline);
-    const isEventPassed = new Date() > new Date(event.date);
+    const isDeadlinePassed = event.registrationDeadline ? new Date() > new Date(event.registrationDeadline) : false;
+    const isEventPassed = event.date ? new Date() > new Date(event.date) : false;
     const isFull = event.seatsAvailable <= 0;
 
     const handleRegister = async () => {
@@ -90,7 +90,7 @@ export default function EventCard({
                 <div className="space-y-2 text-sm text-gray-600">
                     <div className="flex items-center gap-2">
                         <span>📅</span>
-                        <span>{format(new Date(event.date), 'PPP')}</span>
+                        <span>{event.date ? format(new Date(event.date), 'PPP') : 'TBA'}</span>
                         <span className="text-gray-400">•</span>
                         <span>🕐 {event.time}</span>
                     </div>
@@ -108,7 +108,7 @@ export default function EventCard({
                         <span>⏰</span>
                         <span>
                             Registration deadline:{' '}
-                            {format(new Date(event.registrationDeadline), 'PPP')}
+                            {event.registrationDeadline ? format(new Date(event.registrationDeadline), 'PPP') : 'TBA'}
                         </span>
                     </div>
                 </div>

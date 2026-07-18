@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
 
         const registrations = await Registration.find(query)
             .populate('userId', 'name email')
-            .populate('eventId', 'title date time venue category')
+            .populate('eventId')
             .sort({ registrationDate: -1 });
 
         return NextResponse.json({ registrations });
