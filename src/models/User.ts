@@ -7,6 +7,9 @@ export interface IUser extends Document {
   password: string;
   role: 'student' | 'admin';
   points: number;
+  github?: string;
+  linkedin?: string;
+  avatar?: string;
   createdAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
@@ -46,6 +49,9 @@ const UserSchema = new Schema<IUser>(
       type: Number,
       default: 0,
     },
+    github: { type: String, trim: true },
+    linkedin: { type: String, trim: true },
+    avatar: { type: String, trim: true },
   },
   { timestamps: true }
 );

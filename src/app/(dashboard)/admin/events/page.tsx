@@ -9,12 +9,17 @@ export default function AdminEvents() {
     const router = useRouter();
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     const fetchEvents = async () => {
         try {
-            const res = await fetch('/api/events');
+            const res = await fetch(`/api/events?page=${page}&limit=6`);
             const data = await res.json();
-            if (data.events) setEvents(data.events);
+            if (data.events) {
+                setEvents(data.events);
+                setTotalPages(data.pagination?.pages || 1);
+            }
         } finally {
             setLoading(false);
         }
@@ -22,7 +27,7 @@ export default function AdminEvents() {
 
     useEffect(() => {
         fetchEvents();
-    }, []);
+    }, [page]);
 
     const handleDelete = async (id: string) => {
         if (!window.confirm('Delete this event forever?')) return;
@@ -54,6 +59,28 @@ export default function AdminEvents() {
                     />
                 ))}
             </div>
+
+            {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-4 mt-12">
+                    <button
+                        disabled={page === 1}
+                        onClick={() => setPage(p => Math.max(1, p - 1))}
+                        className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg disabled:opacity-50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                        Previous
+                    </button>
+                    <span className="text-sm font-medium dark:text-gray-300">
+                        Page {page} of {totalPages}
+                    </span>
+                    <button
+                        disabled={page === totalPages}
+                        onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                        className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg disabled:opacity-50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                        Next
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

@@ -11,6 +11,8 @@ export default function StudentEvents() {
     const [error, setError] = useState('');
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     const fetchEvents = useCallback(async () => {
         setLoading(true);
@@ -18,17 +20,20 @@ export default function StudentEvents() {
             const queryParams = new URLSearchParams();
             if (search) queryParams.append('search', search);
             if (category) queryParams.append('category', category);
+            queryParams.append('page', page.toString());
+            queryParams.append('limit', '6');
             
             const res = await fetch(`/api/events?${queryParams.toString()}`);
             const data = await res.json();
             if (!res.ok) throw new Error(data.error);
             setEvents(data.events);
+            setTotalPages(data.pagination?.pages || 1);
         } catch (err: any) {
             setError(err.message);
         } finally {
             setLoading(false);
         }
-    }, [search, category]);
+    }, [search, category, page]);
 
     useEffect(() => {
         fetchEvents();
@@ -107,6 +112,28 @@ export default function StudentEvents() {
                     </>
                 )}
             </div>
+            
+            {!loading && totalPages > 1 && (
+                <div className="flex justify-center items-center gap-4 mt-12">
+                    <button
+                        disabled={page === 1}
+                        onClick={() => setPage(p => Math.max(1, p - 1))}
+                        className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg disabled:opacity-50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                        Previous
+                    </button>
+                    <span className="text-sm font-medium dark:text-gray-300">
+                        Page {page} of {totalPages}
+                    </span>
+                    <button
+                        disabled={page === totalPages}
+                        onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                        className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg disabled:opacity-50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    >
+                        Next
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
