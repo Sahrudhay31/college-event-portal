@@ -112,6 +112,10 @@ export async function POST(req: NextRequest) {
         event.seatsAvailable -= 1;
         await event.save();
 
+        // Award 10 points for gamification
+        const { User } = await import('@/models/User');
+        await User.findByIdAndUpdate(user._id, { $inc: { points: 10 } });
+
         return NextResponse.json(registration, { status: 201 });
     } catch (error: any) {
         console.error('Register for event error:', error);

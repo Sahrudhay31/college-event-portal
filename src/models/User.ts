@@ -6,6 +6,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role: 'student' | 'admin';
+  points: number;
   createdAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
@@ -40,6 +41,10 @@ const UserSchema = new Schema<IUser>(
     createdAt: {
       type: Date,
       default: Date.now,
+    },
+    points: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true }

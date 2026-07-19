@@ -31,9 +31,9 @@ const announcementSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
 });
 
-const User = mongoose.models.User || mongoose.model('User', userSchema);
-const Event = mongoose.models.Event || mongoose.model('Event', eventSchema);
-const Announcement = mongoose.models.Announcement || mongoose.model('Announcement', announcementSchema);
+const User: any = mongoose.models.User || mongoose.model('User', userSchema);
+const Event: any = mongoose.models.Event || mongoose.model('Event', eventSchema);
+const Announcement: any = mongoose.models.Announcement || mongoose.model('Announcement', announcementSchema);
 
 async function seed() {
     try {

@@ -12,8 +12,11 @@ interface SidebarProps {
 const studentLinks = [
     { href: '/student', label: 'Dashboard', icon: '📊' },
     { href: '/student/events', label: 'Events', icon: '🎯' },
+    { href: '/student/calendar', label: 'Calendar', icon: '📅' },
     { href: '/student/registrations', label: 'My Registrations', icon: '📋' },
     { href: '/student/announcements', label: 'Announcements', icon: '📢' },
+    { href: '/student/leaderboard', label: 'Leaderboard', icon: '🏆' },
+    { href: '/student/profile', label: 'My Profile', icon: '👤' },
 ];
 
 const adminLinks = [
@@ -22,6 +25,7 @@ const adminLinks = [
     { href: '/admin/events/create', label: 'Create Event', icon: '➕' },
     { href: '/admin/registrations', label: 'Registrations', icon: '📋' },
     { href: '/admin/announcements', label: 'Announcements', icon: '📢' },
+    { href: '/student/leaderboard', label: 'Leaderboard', icon: '🏆' },
 ];
 
 export default function Sidebar({ isOpen, isAdmin }: SidebarProps) {

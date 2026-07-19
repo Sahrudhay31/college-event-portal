@@ -58,6 +58,10 @@ export async function DELETE(
             await event.save();
         }
 
+        // Deduct gamification points
+        const { User } = await import('@/models/User');
+        await User.findByIdAndUpdate(registration.userId, { $inc: { points: -10 } });
+
         return NextResponse.json(
             { message: 'Registration cancelled successfully' },
             { status: 200 }
