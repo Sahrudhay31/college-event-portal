@@ -1,11 +1,20 @@
+import dynamic from 'next/dynamic';
+
+const InteractiveBackground = dynamic(
+    () => import('@/components/3d/InteractiveBackground'),
+    { ssr: false }
+);
 export default function AuthLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
-            <div className="w-full max-w-md">{children}</div>
+        <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
+            <InteractiveBackground />
+            <div className="relative z-10 w-full max-w-md">
+                {children}
+            </div>
         </div>
     );
 }

@@ -5,6 +5,8 @@ import { useRouter, usePathname } from 'next/navigation';
 import Navbar from '@/components/ui/Navbar';
 import Sidebar from '@/components/ui/Sidebar';
 
+import Footer from '@/components/ui/Footer';
+
 export default function DashboardLayout({
     children,
 }: {
@@ -46,13 +48,14 @@ export default function DashboardLayout({
                 toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
                 isSidebarOpen={isSidebarOpen}
             />
-            <div className="flex">
+            <div className="flex min-h-[calc(100vh-64px)]">
                 <Sidebar isOpen={isSidebarOpen} isAdmin={isAdmin} />
                 <main
-                    className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'md:ml-64' : 'ml-0'
+                    className={`flex-1 flex flex-col transition-all duration-300 ${isSidebarOpen ? 'md:ml-64' : 'ml-0'
                         }`}
                 >
-                    <div className="p-6">{children}</div>
+                    <div className="p-6 flex-1">{children}</div>
+                    <Footer />
                 </main>
             </div>
         </div>

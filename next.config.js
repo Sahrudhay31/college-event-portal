@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   images: {
     domains: ['localhost'],
   },
-  output: 'standalone',
   // Add any other config options here
 };
 

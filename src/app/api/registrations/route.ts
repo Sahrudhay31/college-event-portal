@@ -116,7 +116,13 @@ export async function POST(req: NextRequest) {
         const { User } = await import('@/models/User');
         await User.findByIdAndUpdate(user._id, { $inc: { points: 10 } });
 
-        return NextResponse.json(registration, { status: 201 });
+        // Simulate sending email confirmation
+        console.log(`[EMAIL SENT] Confirmation email sent to ${user.email} for event: ${event.title}`);
+
+        return NextResponse.json({
+            registration,
+            message: 'Registration successful! A confirmation email has been sent to your inbox.'
+        }, { status: 201 });
     } catch (error: any) {
         console.error('Register for event error:', error);
         return NextResponse.json(

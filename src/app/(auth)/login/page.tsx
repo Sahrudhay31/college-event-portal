@@ -49,33 +49,37 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+        <div className="bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl p-8">
             <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome Back!</h1>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">Sign in to your account</p>
+                <h1 className="text-3xl font-bold text-white">Welcome Back!</h1>
+                <p className="text-gray-300 mt-2">Sign in to your account</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-                <Input
-                    label="Email Address"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    required
-                />
+                <div className="text-white">
+                    <Input
+                        label="Email Address"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="••••••••"
-                    required
-                />
+                <div className="text-white">
+                    <Input
+                        label="Password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="••••••••"
+                        required
+                    />
+                </div>
 
                 {error && (
-                    <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
+                    <div className="p-3 rounded-lg bg-red-500/20 border border-red-500/50 text-red-200 text-sm">
                         {error}
                     </div>
                 )}
@@ -86,10 +90,10 @@ export default function LoginPage() {
 
                 <div className="relative my-6">
                     <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-gray-200 dark:border-gray-700"></div>
+                        <div className="w-full border-t border-white/20"></div>
                     </div>
                     <div className="relative flex justify-center text-sm">
-                        <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">Admin Access</span>
+                        <span className="px-2 bg-transparent text-gray-400">Admin Access</span>
                     </div>
                 </div>
 
@@ -101,14 +105,15 @@ export default function LoginPage() {
                         setEmail('admin@college.edu');
                         setPassword('password123');
                     }}
+                    className="bg-white/5 hover:bg-white/10 text-white border-white/20"
                 >
                     Login as Admin
                 </Button>
             </form>
 
-            <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">
+            <p className="text-center text-sm text-gray-400 mt-6">
                 Don't have an account?{' '}
-                <Link href="/register" className="text-blue-600 hover:text-blue-700 font-medium">
+                <Link href="/register" className="text-blue-400 hover:text-blue-300 font-medium">
                     Sign up
                 </Link>
             </p>

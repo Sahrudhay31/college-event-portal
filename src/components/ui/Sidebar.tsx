@@ -10,22 +10,24 @@ interface SidebarProps {
 }
 
 const studentLinks = [
-    { href: '/student', label: 'Dashboard', icon: '📊' },
-    { href: '/student/events', label: 'Events', icon: '🎯' },
-    { href: '/student/calendar', label: 'Calendar', icon: '📅' },
-    { href: '/student/registrations', label: 'My Registrations', icon: '📋' },
-    { href: '/student/announcements', label: 'Announcements', icon: '📢' },
-    { href: '/student/leaderboard', label: 'Leaderboard', icon: '🏆' },
-    { href: '/student/profile', label: 'My Profile', icon: '👤' },
+    { href: '/student', label: 'Dashboard' },
+    { href: '/student/events', label: 'Events' },
+    { href: '/student/calendar', label: 'Calendar' },
+    { href: '/student/registrations', label: 'My Registrations' },
+    { href: '/student/announcements', label: 'Announcements' },
+    { href: '/student/leaderboard', label: 'Leaderboard' },
+    { href: '/student/profile', label: 'My Profile' },
 ];
 
 const adminLinks = [
-    { href: '/admin', label: 'Dashboard', icon: '📊' },
-    { href: '/admin/events', label: 'Manage Events', icon: '🎯' },
-    { href: '/admin/events/create', label: 'Create Event', icon: '➕' },
-    { href: '/admin/registrations', label: 'Registrations', icon: '📋' },
-    { href: '/admin/announcements', label: 'Announcements', icon: '📢' },
-    { href: '/student/leaderboard', label: 'Leaderboard', icon: '🏆' },
+    { href: '/admin', label: 'Dashboard' },
+    { href: '/admin/events', label: 'Manage Events' },
+    { href: '/admin/events/create', label: 'Create Event' },
+    { href: '/admin/ai-planner', label: 'AI Event Planner' },
+    { href: '/admin/conflicts', label: 'AI Conflict Detector' },
+    { href: '/admin/registrations', label: 'Registrations' },
+    { href: '/admin/announcements', label: 'Announcements' },
+    { href: '/student/leaderboard', label: 'Leaderboard' },
 ];
 
 export default function Sidebar({ isOpen, isAdmin }: SidebarProps) {
@@ -53,7 +55,6 @@ export default function Sidebar({ isOpen, isAdmin }: SidebarProps) {
                                     : 'text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50'
                             )}
                         >
-                            <span className="text-xl">{link.icon}</span>
                             <span>{link.label}</span>
                         </Link>
                     );

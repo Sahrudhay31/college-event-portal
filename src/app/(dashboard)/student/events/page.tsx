@@ -53,7 +53,7 @@ export default function StudentEvents() {
                 return;
             }
             
-            alert('Successfully registered!');
+            alert(data.message || 'Successfully registered!');
             fetchEvents(); // Refresh seats available
         } catch (err: any) {
             alert('Error registering for event');

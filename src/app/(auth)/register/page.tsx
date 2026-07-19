@@ -56,51 +56,59 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+        <div className="bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl p-8">
             <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Create Account</h1>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">Join the college event community</p>
+                <h1 className="text-3xl font-bold text-white">Create Account</h1>
+                <p className="text-gray-300 mt-2">Join the college event community</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
-                <Input
-                    label="Full Name"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="John Doe"
-                    required
-                />
+                <div className="text-white">
+                    <Input
+                        label="Full Name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="John Doe"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Email Address"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    required
-                />
+                <div className="text-white">
+                    <Input
+                        label="Email Address"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Minimum 6 characters"
-                    required
-                />
+                <div className="text-white">
+                    <Input
+                        label="Password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Minimum 6 characters"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Confirm Password"
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    placeholder="Confirm your password"
-                    required
-                />
+                <div className="text-white">
+                    <Input
+                        label="Confirm Password"
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        placeholder="Confirm your password"
+                        required
+                    />
+                </div>
 
                 {error && (
-                    <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
+                    <div className="p-3 rounded-lg bg-red-500/20 border border-red-500/50 text-red-200 text-sm">
                         {error}
                     </div>
                 )}
@@ -110,9 +118,9 @@ export default function RegisterPage() {
                 </Button>
             </form>
 
-            <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">
+            <p className="text-center text-sm text-gray-400 mt-6">
                 Already have an account?{' '}
-                <Link href="/login" className="text-blue-600 hover:text-blue-700 font-medium">
+                <Link href="/login" className="text-blue-400 hover:text-blue-300 font-medium">
                     Sign in
                 </Link>
             </p>
