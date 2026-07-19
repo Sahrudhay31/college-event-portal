@@ -18,6 +18,30 @@ A modern, highly interactive, and AI-powered event management platform designed 
 - **🔐 Secure Authentication**: Role-based access control (Student vs Admin) using JWT and encrypted passwords.
 - **🗄️ NoSQL Database**: Fast and flexible data storage using MongoDB and Mongoose.
 
+## ⚙️ Core Functions & Workflow
+
+### 1. Student Dashboard & Registration
+- **Browse Events:** Students can view a feed of upcoming events, workshops, and hackathons hosted by various college clubs.
+- **Seamless Registration:** One-click registration for events. The system tracks RSVPs and prevents double booking for limited-capacity events.
+- **Personalized Calendar:** A dedicated view showing all the events a student is registered for, helping them manage their time effectively.
+
+### 2. Admin Event Management
+- **Create & Edit:** Club presidents and college administrators can manually create events with detailed descriptions, dates, and venue assignments.
+- **Registration Tracking:** Admins can view a live dashboard of who has registered for their events, download attendee lists, and monitor capacity limits.
+
+### 3. AI Event Planner (Powered by Gemini)
+- **Natural Language Prompts:** Admins can simply type "Plan a 24-hour coding hackathon for 300 students next weekend".
+- **Instant Logistics:** The AI instantly generates a comprehensive plan including:
+  - **Estimated Budget:** Broken down by food, prizes, and marketing.
+  - **Volunteers Needed:** Estimated staff required for smooth execution.
+  - **Venue Suggestions:** Based on the requested capacity.
+  - **Marketing Assets:** Auto-generated social media captions and email drafts.
+- **One-Click Draft:** Admins can click "Create This Event" to automatically transfer the AI-generated logistics directly into the Event Creation form.
+
+### 4. AI Conflict Detector
+- **Automated Scanning:** Scans the entire college database for overlapping dates, times, and venues across different clubs.
+- **Intelligent Resolution:** If two clubs accidentally book the "Main Auditorium" on the same day, the AI flags the conflict and suggests alternative venues or timing shifts to resolve the double-booking.
+
 ## 🛠️ Technology Stack
 
 - **Frontend**: Next.js 14, React 18, Tailwind CSS
