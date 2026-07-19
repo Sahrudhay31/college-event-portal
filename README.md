@@ -1,4 +1,4 @@
-# 🎓 College Event Portal
+# College Event Portal
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
 ![React](https://img.shields.io/badge/React-18-blue)
@@ -8,17 +8,17 @@
 
 A modern, highly interactive, and AI-powered event management platform designed specifically for college campuses. It seamlessly connects students with upcoming events, workshops, and hackathons, while providing administrators with intelligent tools to streamline event logistics.
 
-## ✨ Key Features
+## Key Features
 
-- **🚀 AI Event Planner**: Generate complete logistical event plans (budget, timeline, venue, marketing) using natural language through Google Gemini AI.
-- **🚨 AI Conflict Detector**: Automatically scan the college calendar to detect and resolve venue or scheduling overlaps between different clubs.
-- **🎨 Interactive 3D Interfaces**: An immersive, hardware-accelerated 3D background powered by **Three.js** and **React Three Fiber**.
-- **💎 Glassmorphism UI**: Stunning, modern, and translucent user interfaces that react to user interaction.
-- **📱 Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing.
-- **🔐 Secure Authentication**: Role-based access control (Student vs Admin) using JWT and encrypted passwords.
-- **🗄️ NoSQL Database**: Fast and flexible data storage using MongoDB and Mongoose.
+- **AI Event Planner**: Generate complete logistical event plans (budget, timeline, venue, marketing) using natural language through Google Gemini AI.
+- **AI Conflict Detector**: Automatically scan the college calendar to detect and resolve venue or scheduling overlaps between different clubs.
+- **Interactive 3D Interfaces**: An immersive, hardware-accelerated 3D background powered by **Three.js** and **React Three Fiber**.
+- **Glassmorphism UI**: Stunning, modern, and translucent user interfaces that react to user interaction.
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing.
+- **Secure Authentication**: Role-based access control (Student vs Admin) using JWT and encrypted passwords.
+- **NoSQL Database**: Fast and flexible data storage using MongoDB and Mongoose.
 
-## ⚙️ Core Functions & Workflow
+## Core Functions & Workflow
 
 ### 1. Student Dashboard & Registration
 - **Browse Events:** Students can view a feed of upcoming events, workshops, and hackathons hosted by various college clubs.
@@ -42,7 +42,7 @@ A modern, highly interactive, and AI-powered event management platform designed 
 - **Automated Scanning:** Scans the entire college database for overlapping dates, times, and venues across different clubs.
 - **Intelligent Resolution:** If two clubs accidentally book the "Main Auditorium" on the same day, the AI flags the conflict and suggests alternative venues or timing shifts to resolve the double-booking.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Frontend**: Next.js 14, React 18, Tailwind CSS
 - **3D Graphics**: Three.js, React Three Fiber, React Three Drei
@@ -51,7 +51,7 @@ A modern, highly interactive, and AI-powered event management platform designed 
 - **AI Integration**: Google Generative AI SDK (`gemini-flash-latest`)
 - **Authentication**: JWT & bcryptjs
 
-## 🚀 Getting Started (Local Development)
+## Getting Started (Local Development)
 
 1. **Clone the repository**
    ```bash
@@ -79,7 +79,7 @@ A modern, highly interactive, and AI-powered event management platform designed 
    ```
    Open [http://localhost:3000](http://localhost:3000) to view the portal.
 
-## 🐳 Docker Deployment (Production)
+## Docker Deployment (Production)
 
 The application is fully containerized and optimized for production using Next.js standalone output.
 
@@ -94,7 +94,7 @@ The application is fully containerized and optimized for production using Next.j
    ```
 4. The application will be accessible at `http://localhost:8080`.
 
-## 🧑‍💻 About the Developer
+## About the Developer
 
 Designed and built with passion by **Sahrudhay**.
 

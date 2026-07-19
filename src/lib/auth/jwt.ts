@@ -1,11 +1,7 @@
 import { SignJWT, jwtVerify } from 'jose';
 import { NextRequest } from 'next/server';
 
-const JWT_SECRET = process.env.JWT_SECRET!;
-
-if (!JWT_SECRET) {
-    throw new Error('Please define the JWT_SECRET environment variable');
-}
+const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_for_development_only';
 
 const secretKey = new TextEncoder().encode(JWT_SECRET);
 
