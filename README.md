@@ -42,6 +42,27 @@ A modern, highly interactive, and AI-powered event management platform designed 
 - **Automated Scanning:** Scans the entire college database for overlapping dates, times, and venues across different clubs.
 - **Intelligent Resolution:** If two clubs accidentally book the "Main Auditorium" on the same day, the AI flags the conflict and suggests alternative venues or timing shifts to resolve the double-booking.
 
+## System Architecture
+
+```mermaid
+graph TD
+    Client["Client (Next.js Frontend)"]
+    Client -->|API Requests| Backend["Next.js Route Handlers (Backend)"]
+    
+    Backend -->|CRUD Operations| DB[("MongoDB (Mongoose)")]
+    Backend -->|Prompt Engineering| Gemini{"Google Gemini API"}
+    Backend -->|Auth Verification| JWT["JWT Service"]
+    
+    Client -.->|Renders| UI["React 18 & Tailwind CSS"]
+    Client -.->|WebGL| Three["Three.js / React Three Fiber"]
+    
+    style Client fill:#3178c6,stroke:#fff,stroke-width:2px,color:#fff
+    style Backend fill:#000000,stroke:#fff,stroke-width:2px,color:#fff
+    style DB fill:#47A248,stroke:#fff,stroke-width:2px,color:#fff
+    style Gemini fill:#F9AB00,stroke:#fff,stroke-width:2px,color:#000
+    style JWT fill:#FF5722,stroke:#fff,stroke-width:2px,color:#fff
+```
+
 ## Technology Stack
 
 - **Frontend**: Next.js 14, React 18, Tailwind CSS
